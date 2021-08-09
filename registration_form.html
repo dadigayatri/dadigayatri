@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <title>Registration Form</title>
+        </head>
+        <script>
+            function registration()
+            {
+                // alert("hello");
+                var name= document.getElementById("t1").value;
+                var email= document.getElementById("t2").value;
+                var uname= document.getElementById("t3").value;
+                var pwd= document.getElementById("t4").value;			
+                var cpwd= document.getElementById("t5").value;
+                var phn= document.getElementById("t6").value;
+                var cntry= document.getElementById("t7").value;
+                var adrs= document.getElementById("t8").value;
+                var pinc= document.getElementById("t9").value;
+                // alert("hi");
+                var pwd_verify = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+                var name_verify = /^[A-Za-z]+$/;
+                var email_verify = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+                if(name=='')
+                {
+                    alert('Please enter your name');
+                }
+                else if(!name_verify.test(name))
+                {
+                    alert('Name field required only alphabet characters');
+                }
+                else if(email=='')
+                {
+                    alert('Please enter your user email id');
+                }
+                else if (!email_verify.test(email))
+                {
+                    alert('Invalid email');
+                }
+                else if(uname=='')
+                {
+                    alert('Please enter the user name.');
+                }
+                else if(!name_verify.test(uname))
+                {
+                    alert('User name field required only alphabet characters');
+                }
+                else if(pwd=='')
+                {
+                    alert('Please enter Password');
+                }
+                else if(cpwd=='')
+                {
+                    alert('Enter Confirm Password');
+                }
+                else if(document.getElementById("t5").value.length < 8)
+                {
+                    alert ('Password minimum length is 8');
+                }
+                else if(!pwd_verify.test(pwd))
+                {
+                    alert ('Upper case, Lower case, Special character and Numeric letter are required in Password field');
+                }
+                else if(pwd != cpwd)
+                {
+                    alert ('Password not Matched');
+                }
+                else if(document.getElementById("t5").value.length > 12)
+                {
+                    alert ('Password max length is 12');
+                }
+                else if(document.getElementById("t6").value.length != 10)
+                {
+                    alert ('Please verify Mobile number');
+                }
+                else if(document.getElementById("t7").value == "Default")
+                {
+                    alert ('Please select country');
+                }
+                else if(document.getElementById("t9").value.length != 6)
+                {
+                    alert ('Please verify ZIP code');
+                }
+                else
+                {				                            
+                    alert('Thank You for Login');
+                    // G25@gmail.com
+                    window.location = "#"; 
+                }
+            }
+
+            function clearFunc()
+            {
+                document.getElementById("t1").value="";
+                document.getElementById("t2").value="";
+                document.getElementById("t3").value="";
+                document.getElementById("t4").value="";
+                document.getElementById("t5").value="";
+                document.getElementById("t6").value="";
+                document.getElementById("t8").value="";
+                document.getElementById("t9").value="";
+                // alert();
+                document.getElementById("t7").value = "Default";
+                document.getElementById("t11").checked = true;
+                // document.querySelector('input[name=sex]').value;
+            }
+
+        </script>
+        <style>
+            table {
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+        <body>
+            <div id="main">
+                <div class="h-tag">
+                <h2 align="center">Create Your Account</h2>
+                </div>
+                <div class="login">
+                    <table cellspacing="2" align="center" cellpadding="8" >
+                        <tbody>
+                            <tr>
+                                <td align="right"><b>Enter Name :</b></td>
+                                <td><input type="text" placeholder="Enter Name here" id="t1" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Enter Email ID :</b></td>
+                                <td><input type="text" placeholder="Enter Email ID here" id="t2" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Enter Username :</b></td>
+                                <td><input type="text" placeholder="Enter Username here" id="t3" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Enter Password :</b></td>
+                                <td><input type="password" placeholder="Enter Password here" id="t4" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Confirm Password :</b></td>
+                                <td><input type="password" placeholder="Enter Password again" id="t5" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Mobile Number :</b></td>
+                                <td><input type="number" placeholder="Enter phone number" id="t6" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Select Country :</b></td>
+                                <td>
+                                <select name="country" id="t7">
+                                    <option selected="" value="Default">Please select a country</option>
+                                    <option value="IND">India</option>
+                                    <option value="AF">Australia</option>
+                                    <option value="AL">Canada</option>
+                                    <option value="AS">Russia</option>
+                                    <option value="AD">USA</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Address :</b></td>
+                                <td><input type="text" placeholder="Enter Address (optional)" id="t8" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>ZIP :</b></td>
+                                <td><input type="number" placeholder="Enter Pincode" id="t9" min="0" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Select Gender :</b></td>
+                                <td><input type="radio" id="t10" name="sex" value="Male" /><span>Male</span>
+                                    <input type="radio" id="t11" name="sex" value="Female" checked="checked" /><span>Female</span>
+                                    <input type="radio" id="t12" name="sex" value="Others" /><span>Others</span></td>
+                            </tr>
+                            <tr>
+                                <td  align="right"><input type="checkbox" checked="checked" name="remember"></td>
+                                <td> Remember me</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"  align="center">
+                                    <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+                                    <input type="submit" value="Create Account" class="btn" onclick="registration()" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </body>
+	</html>

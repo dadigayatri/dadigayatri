@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Simple Interest Calculator</title>
+        <script src="calculate_2.js"></script>
+    </head>
+    <style>
+        body 
+        {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial;
+        }
+        h1
+        {
+            color: grey;
+            font-family: Verdana;
+        }
+        .maindiv
+        {
+            /* background-color: #ffffff; */
+            color: #000000;
+            width: 500px;
+            padding: 20px;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #result
+        {
+            color: #ebe0e0;
+            /* display: none; */
+        }
+        .contents
+        {
+            margin-left: 80px;
+        }
+        table td
+        {
+            padding-bottom: 10px;
+        }
+        #calculate, #reset
+        {
+            background-color: blue;
+            color: white;
+            height: 40px;
+            width: 150px;
+        }
+        #principal{
+            height: 25px;
+            width: 190px;
+        }
+        #years{
+            height: 35px;
+            width: 200px;
+        }
+        .labels
+        {
+            width: 120px;
+        }
+        
+    </style>
+    <body>
+        <div class="maindiv">
+            <h1>Simple Interest Calculator</h1>
+
+            <div class="contents">
+                <table id="table">
+                    <tbody>
+                        <tr>
+                            <td class="labels">Amount </td>
+                            <td>
+                                <input type="number" min="0" id="principal">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Interest Rate %</td>
+                            <td>
+                                <input type="number" min="1" max="20" step="0.25" id="rate" name="rate"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labels">No. of Years</td>
+                            <td>
+                                <input type="number" min="0" id="years">
+                                <!-- <select name="years" id="years">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select> -->
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td><button id="reset" onclick="Reset()">Reset Values</button></td>
+                            <td><button id="calculate" onclick="Calculate()">Calculate Interest</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span id="result"></span>
+            </div>
+        </div>
+    </body>
+</html>
