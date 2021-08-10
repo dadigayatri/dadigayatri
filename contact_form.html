@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body {font-family: Arial}
+    div {padding: 10px 0;border-style: solid;} 
+    input[type=text] {  
+        width: 25%;  
+        padding: 15px;  
+        margin: 5px 0 22px 0;  
+        display: inline-block;  
+        border: none;  
+        background: #f1f1f1;}
+    select{ position: relative; min-width: 200px;height: 30px;}
+    input[type=text]:focus{  
+        background-color: rgb(195, 230, 247);  
+        outline: none;}
+</style>
+<body>  
+    <form name="form" method="post">  
+    <div align="center";>  
+    <center>  <h1>Contact Form</h1> </center>    
+    <hr>
+    <label> FIRST NAME: </label>  
+    <input type="text" id="firstname" name="firstname" placeholder= "Enter Firstname" size="15" required /><br>      
+    <label> LAST NAME: </label> 
+    <input type="text"id="lastname" name="lastname" placeholder="Enter Lastname" size="15" required /><br>    
+    <label> FATHER NAME:</label> 
+    <input type="text" id="fathername" name="fathername" placeholder= "Enter Father name" size="15" required /><br>      
+    <label> MOTHER NAME: </label>   
+    <input type="text" id="mothername" name="mothername" placeholder="Enter Mother name" size="15" required /><br>    
+    <label> ADHAAR NO: </label>   
+    <input type="text" id="adhaarno" name="adhaarno" placeholder="Enter Adhaar number" size="15" required /><br>    
+    <label>PHONE NO:</label>
+    <input id="phoneno" type="text" name="phone" placeholder="Enter Phone number" size="10" required/><br>
+    <label>Current Address :</label>
+    <textarea cols="40" rows="5" id="address" name="address" placeholder="Current Address" value="address" required>  
+    </textarea></br><br/>
+    <center><input type="submit" value="submit"></center>   
+    </div>  
+    </form>  
+    </body> 
+
+    <script type="text/javascript">
+
+        const registrationData= new Map();
+        const uniquePhoneNumber=new Set();
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (event) 
+        {
+            event.preventDefault();
+            const formData =new FormData(this);
+            const entries = formData.entries();
+            const data = Object.fromEntries(entries);
+            console.log(data);
+            if (registrationData.has(data.adhaarno)) 
+            {
+                alert('user already exist with given aadhar number');
+                return false;
+            } 
+            else 
+            {
+                if (registrationData.has(data.phoneno)) 
+                {
+                    alert('user already exist with given phone Number');
+                    return false;
+                }
+                registrationData.set(data.adhaarno, data);
+            }
+            uniquePhoneNumber.add(data.phoneno);
+            alert('you have successfully register');
+            form.reset();
+            console.log(Array.from(registrationData.values()));
+        });
+        </script>
+
+    </body>
+</html>

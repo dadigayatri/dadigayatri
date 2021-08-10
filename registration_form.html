@@ -16,6 +16,7 @@
                 var cntry= document.getElementById("t7").value;
                 var adrs= document.getElementById("t8").value;
                 var pinc= document.getElementById("t9").value;
+                var crse= document.getElementById("t13").value;
                 // alert("hi");
                 var pwd_verify = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
                 var name_verify = /^[A-Za-z]+$/;
@@ -73,7 +74,7 @@
                 {
                     alert ('Please verify Mobile number');
                 }
-                else if(document.getElementById("t7").value == "Default")
+                else if(cntry == "Default")
                 {
                     alert ('Please select country');
                 }
@@ -81,11 +82,15 @@
                 {
                     alert ('Please verify ZIP code');
                 }
+                else if(crse == "Course")
+                {
+                    alert ('Please select Course');
+                }
                 else
                 {				                            
                     alert('Thank You for Login');
                     // G25@gmail.com
-                    window.location = "#"; 
+                    // window.location = "#"; 
                 }
             }
 
@@ -102,6 +107,7 @@
                 // alert();
                 document.getElementById("t7").value = "Default";
                 document.getElementById("t11").checked = true;
+                document.getElementById("t13").value = "Course";
                 // document.querySelector('input[name=sex]').value;
             }
 
@@ -156,6 +162,17 @@
                                     <option value="AD">USA</option>
                                 </select></td>
                             </tr>
+                            <tr>
+                                <td align="right"><b>Select Course :</b></td>
+                                <td>   
+                                <select name="course" id="t13">  
+                                    <option selected="" value="Course">Select Course</option>
+                                    <option value="btech">B.Tech</option>
+                                    <option value="bsc">BSC</option>
+                                    <option value="mba">MBA</option>
+                                    <option value="mtech">M.Tech</option>
+                                </select></td>
+                            </tr> 
                             <tr>
                                 <td align="right"><b>Address :</b></td>
                                 <td><input type="text" placeholder="Enter Address (optional)" id="t8" /></td>
